@@ -42,8 +42,8 @@ double myCos(double x)
 double mySin(double x)
 {
     int i = 1;
-    int result = x;
-    int temp = x;
+    double result = x;
+    double temp = x;
     while (std::abs(temp) >= 0.0001){
         temp *= -x * x / ((2 * i + 1) * (2 * i));
         result += temp;
