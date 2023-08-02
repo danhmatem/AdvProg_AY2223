@@ -53,7 +53,7 @@ Game::~Game()
 void Game::snakeMoveTo(Position pos) {
 	//  START CODE HERE
 	
-	if (!pos.isInsideBox(0,0,width,height)){
+	/*if (!pos.isInsideBox(0,0,width,height)){
 		setGameStatus(GAME_OVER);
 		return;
 	}
@@ -62,8 +62,12 @@ void Game::snakeMoveTo(Position pos) {
 			setGameStatus(GAME_OVER);
 			return;
 		}
-	}
+	}*/
 	CellType celltype = getCellType(pos);
+	if (celltype == CELL_SNAKE || celltype == CELL_OFF_BOARD){
+		setGameStatus(GAME_OVER);
+		return;
+	}
 	if (celltype == CELL_CHERRY){
 		score ++;
 		
