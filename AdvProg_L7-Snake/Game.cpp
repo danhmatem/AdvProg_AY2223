@@ -242,6 +242,10 @@ CellType Game::getCellType(Position pos) const
 	return pos.isInsideBox(0, 0, width, height) ? squares[pos.y][pos.x] : CELL_OFF_BOARD;
 }
 
+void Game::setGameStatus(GameStatus status)
+{
+}
+
 // DO NOT change this method
 vector<Position> Game::getSnakePositions() const
 {
