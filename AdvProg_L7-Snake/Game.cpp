@@ -53,31 +53,18 @@ Game::~Game()
 void Game::snakeMoveTo(Position pos) {
 	//  START CODE HERE
 	
-	/*if (!pos.isInsideBox(0,0,width,height)){
-		setGameStatus(GAME_OVER);
-		return;
-	}
-	for (const Position& p : snake.getPositions()) {
-		if (p == pos){
-			setGameStatus(GAME_OVER);
-			return;
-		}
-	}*/
 	CellType celltype = getCellType(pos);
 	if (celltype == CELL_SNAKE || celltype == CELL_OFF_BOARD){
-		setGameStatus(GAME_OVER);
+		status = GAME_OVER;
 		return;
-	}
-	if (celltype == CELL_CHERRY){
+	}else if (pos == cherryPosition){
 		score ++;
-		
 		snake.eatCherry();
-
 		addCherry();
-	}else{
-		setCellType(pos, CELL_SNAKE);
+	}else {
 		snake.slideTo(pos);
 	}
+	
 	
 	// END CODE HERE
 }
